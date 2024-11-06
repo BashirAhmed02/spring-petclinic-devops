@@ -1,0 +1,9 @@
+.git
+.github
+target
+*.md
+*.yml
+*.yaml
+.idea
+*.iml
+*.log
