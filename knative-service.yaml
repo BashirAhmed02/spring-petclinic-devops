@@ -1,0 +1,23 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: spring-petclinic
+  namespace: default
+spec:
+  template:
+    spec:
+      containers:
+        - image: bashir02/spring-petclinic:latest
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: production
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "200m"
+              memory: "256Mi"
+  traffic:
+    - latestRevision: true
+      percent: 100
